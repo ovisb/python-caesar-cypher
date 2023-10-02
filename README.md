@@ -1,6 +1,24 @@
-# Python Project 'caesar_cypher'
+# EDU project
 
-#### Install steps
+## Project
+This is *Cracking the Caesar Cypher* project that is part of Hyperskill platform from Jetbrains Academy.
+
+'Python Core' track
+
+## Technologies and tools used
+- Python 3.11
+- pytest
+- mypy
+- isort
+- black
+- flake8
+- make
+
+## Project description
+Small program that can interpret texts encrypted by the Caesar cipher.
+
+
+#### Install steps adapted for Poetry
 
 Install everything (main + dev packages except optional groups)
 
