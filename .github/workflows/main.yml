@@ -1,20 +1,35 @@
 on:
   pull_request:
-    branches: 
+    branches:
       - main
 jobs:
   test_job:
-    name: Test PR job
+    name: CI checks
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
     steps:
       - uses: actions/checkout@v4
       - name: Install poetry
         run: pipx install poetry
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
-          cache: 'poetry'
-      - run: poetry install
-      - run: make checks
-    
-    
+          python-version: ${{ matrix.python-version }}
+          cache: "poetry"
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+      - name: Install poetry.lock dependencies
+        run: poetry install
+      - name: Run Isort checks
+        run: poetry run isort --diff .
+      - name: Run black checks
+        run: poetry run black --check .
+      - name: Run flake8 checks
+        run: poetry run flake8
+      - name: Run mypy checks
+        run: poetry run mypy
+      - name: Run pytest unit tests
+        run: poetry run pytest -vv --no-cov
+      - name: Run pytest with cov
+        run: poetry run pytest --cov --cov-fail-under=100
