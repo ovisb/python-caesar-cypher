@@ -6,6 +6,7 @@ def main() -> None:
     encoded_text = get_user_input()
     text_to_decode = get_user_input()
     shift = find_shift(encoded_text)
+    print(shift)
     print(decode_text(text_to_decode, shift))
 
 
