@@ -42,9 +42,11 @@ def test_find_shift():
     text = "r d c r t r c r f i j c x t r j c g z y y j w x h t y h m c u n j"
     assert find_shift(text) == 21
 
+
 def test_find_not_find_shift():
     text = "r d c r t r c r f t b c x a r x x h a y y j w x a a y h m c u n j"
     assert find_shift(text) == 0
+
 
 @pytest.mark.parametrize(
     "test_inp_, expected",
@@ -55,7 +57,7 @@ def test_find_not_find_shift():
             ("u q j f x j c h t r j c y w d c f c x q n h j", 21),
             "please come try a slice",
         ),
-        (("r r r", 0), "rrr")
+        (("r r r", 0), "rrr"),
     ],
 )
 def test_decode_shift21(test_inp_, expected):
