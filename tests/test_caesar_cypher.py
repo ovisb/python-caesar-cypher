@@ -4,8 +4,9 @@ import pytest
 
 from caesar_cypher.caesar_cypher import (
     convert_to_ascii,
-    convert_to_cypher,
     convert_to_int,
+    decode_text,
+    find_shift,
     get_user_input,
 )
 
@@ -37,14 +38,26 @@ def test_convert_to_ascii(test_inp_, expected):
     assert convert_to_ascii(test_inp_) == expected
 
 
+def test_find_shift():
+    text = "r d c r t r c r f i j c x t r j c g z y y j w x h t y h m c u n j"
+    assert find_shift(text) == 21
+
+def test_find_not_find_shift():
+    text = "r d c r t r c r f t b c x a r x x h a y y j w x a a y h m c u n j"
+    assert find_shift(text) == 0
+
 @pytest.mark.parametrize(
     "test_inp_, expected",
     [
-        ("e b i i l", "hello"),
-        ("c o f b k a", "friend"),
-        ("h b v t l o a", "keyword"),
-        ("y r q q b o p z l q z e", "butterscotch"),
+        (("r r r", 21), "mmm"),
+        (("x r j q q x c y f x y d", 21), "smells tasty"),
+        (
+            ("u q j f x j c h t r j c y w d c f c x q n h j", 21),
+            "please come try a slice",
+        ),
+        (("r r r", 0), "rrr")
     ],
 )
-def test_convert_to_cypher(test_inp_, expected):
-    assert convert_to_cypher(test_inp_) == expected
+def test_decode_shift21(test_inp_, expected):
+    test, shift = test_inp_
+    assert decode_text(test, shift) == expected
