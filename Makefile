@@ -1,5 +1,5 @@
 # Makefile
-.PHONY: checks test unittest
+.PHONY: checks format test unittest
 
 help:
 	@echo "checks - Runs isort/black/flake8/mypy"
