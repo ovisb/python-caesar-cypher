@@ -1,11 +1,15 @@
+![main_build_status](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+
 # EDU project
 
 ## Project
-This is *Cracking the Caesar Cypher* project that is part of Hyperskill platform from Jetbrains Academy.
+
+This is _Cracking the Caesar Cypher_ project that is part of Hyperskill platform from Jetbrains Academy.
 
 'Python Core' track
 
 ## Technologies and tools used
+
 - Python 3.11
 - pytest
 - mypy
@@ -15,8 +19,8 @@ This is *Cracking the Caesar Cypher* project that is part of Hyperskill platform
 - make
 
 ## Project description
-Small program that can interpret texts encrypted by the Caesar cipher.
 
+Small program that can interpret texts encrypted by the Caesar cipher.
 
 #### Install steps adapted for Poetry
 
