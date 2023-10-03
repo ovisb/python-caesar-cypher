@@ -14,7 +14,6 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'poetry'
-      - name: Install all required packages
       - run: poetry install
       - run: make checks
     
