@@ -1,5 +1,10 @@
 """Main module"""
-from caesar_cypher import decode_caesar, find_shift, get_user_input, get_key_length, get_indices_difference, decode_vigenere  # type: ignore
+from caesar_cypher import (  # type: ignore
+    decode_vigenere,
+    get_indices_difference,
+    get_key_length,
+    get_user_input,
+)
 
 
 def main() -> None:

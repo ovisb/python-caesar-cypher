@@ -25,6 +25,7 @@ def get_indices_difference(regular_text: str, encoded_text: str) -> list[int]:
 
     return diff_indices
 
+
 def get_user_input() -> str:
     """
     Get input from user.
@@ -33,6 +34,7 @@ def get_user_input() -> str:
     """
     return input()
 
+
 def get_key_length() -> int:
     """
     Get key length
@@ -40,6 +42,7 @@ def get_key_length() -> int:
     :return: type cast to int
     """
     return int(input())
+
 
 def decode_caesar(test_input: str, shift_modifier: int) -> str:
     """
@@ -58,6 +61,7 @@ def decode_caesar(test_input: str, shift_modifier: int) -> str:
 
     return "".join(new).replace("x", " ")
 
+
 def decode_vigenere(target_message: str, indices: list[int]) -> str:
     """
     Decode Vigenere cipher text
@@ -69,12 +73,13 @@ def decode_vigenere(target_message: str, indices: list[int]) -> str:
     max_letters = 26
     target_chars = target_message.split()
     for idx, letter in enumerate(target_chars):
-        pos_idx = idx % len(indices) # alternate indices
-        new_pos = (max_letters + string.ascii_lowercase.index(letter) - indices[pos_idx]) % max_letters
+        pos_idx = idx % len(indices)  # alternate indices
+        new_pos = (
+            max_letters + string.ascii_lowercase.index(letter) - indices[pos_idx]
+        ) % max_letters
         target_chars[idx] = string.ascii_lowercase[new_pos]
 
     return "".join(target_chars).replace("x", " ")
-
 
 
 def convert_to_int(user_input: str) -> list[int]:
@@ -84,10 +89,8 @@ def convert_to_int(user_input: str) -> list[int]:
     :param user_input: encoded text
     :return: list of numbers
     """
-    return [
-        int(num)
-        for num in user_input.split()
-    ]
+    return [int(num) for num in user_input.split()]
+
 
 def convert_to_ascii(numbers: list[int]) -> str:
     """
@@ -96,10 +99,8 @@ def convert_to_ascii(numbers: list[int]) -> str:
     :param numbers:
     :return: ASCII text
     """
-    return "".join([
-        string.ascii_lowercase[num]
-        for num in numbers
-    ])
+    return "".join([string.ascii_lowercase[num] for num in numbers])
+
 
 def find_shift(user_input: str) -> int:
     """
